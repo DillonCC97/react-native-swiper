@@ -91,7 +91,8 @@ const styles = {
 
   buttonText: {
     fontSize: 50,
-    color: '#007aff'
+    color: '#007aff',
+    fontFamily: 'Arial'
   }
 }
 
@@ -461,7 +462,7 @@ export default class extends Component {
     if (state.dir === 'x') x = diff * state.width
     if (state.dir === 'y') y = diff * state.height
 
-    if (Platform.OS !== 'ios') {
+    if (false) {
       this.scrollView && this.scrollView[animated ? 'setPage' : 'setPageWithoutAnimation'](diff)
     } else {
       this.scrollView && this.scrollView.scrollTo({ x, y, animated })
@@ -620,7 +621,7 @@ export default class extends Component {
   }
 
   renderScrollView = pages => {
-    if (Platform.OS === 'ios') {
+    // if (Platform.OS === 'ios') {
       return (
         <ScrollView ref={this.refScrollView}
           {...this.props}
@@ -634,7 +635,7 @@ export default class extends Component {
           {pages}
         </ScrollView>
        )
-    }
+    // }
     return (
       <ViewPagerAndroid ref={this.refScrollView}
         {...this.props}
